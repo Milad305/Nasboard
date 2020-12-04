@@ -53,14 +53,15 @@ class _MyHomePageState extends State<MyHomePage> {
     return Container(
       margin: EdgeInsets.symmetric(vertical: 10),
       width: AppTheme.fullWidth(context),
-      height: AppTheme.fullWidth(context) * .6,
+      height: AppTheme.fullWidth(context) * .65,
       child: GridView(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 1,
-            childAspectRatio: 4 / 3,
+            childAspectRatio:7/4.7 ,
+
             mainAxisSpacing: 30,
             crossAxisSpacing: 20),
-        padding: EdgeInsets.only(left: 20),
+        padding: EdgeInsets.only(right: 20),
         scrollDirection: Axis.horizontal,
         children: AppData.productList
             .map(

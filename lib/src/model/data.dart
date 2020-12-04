@@ -6,7 +6,7 @@ class AppData {
   static List<Product> productList = [
     Product(
         id:1,
-        name: 'برد موبایل S8',
+        name: 'برد موبایل S5',
         price: 240.00,
         isSelected: true,
         isliked: false,

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ecommerce_app/src/model/data.dart';
 
 import 'package:flutter_ecommerce_app/src/model/product.dart';
 import 'package:flutter_ecommerce_app/src/themes/light_color.dart';
+import 'package:flutter_ecommerce_app/src/themes/theme.dart';
 import 'package:flutter_ecommerce_app/src/widgets/title_text.dart';
 import 'package:flutter_ecommerce_app/src/widgets/extentions.dart';
 
@@ -25,6 +27,7 @@ class ProductCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+
       decoration: BoxDecoration(
         color: LightColor.background,
         borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -34,20 +37,30 @@ class ProductCard extends StatelessWidget {
       ),
       margin: EdgeInsets.symmetric(vertical:20),
       child: Container(
+        width: AppTheme.fullWidth(context),
+        height: AppTheme.fullHeight(context),
         padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         child: Stack(
           alignment: Alignment.center,
+          
           children: <Widget>[
             Positioned(
-              left: 0,
+              height: 30,
+              width: 30,
+              right: 0,
               top: 0,
               child: IconButton(
+
                 icon: Icon(
                   product.isliked ? Icons.favorite : Icons.favorite_border,
                   color:
                   product.isliked ? LightColor.red : LightColor.iconColor,
                 ),
-                onPressed: () {},
+                onPressed: () {
+                  product.isliked ? Icons.favorite_border : Icons.favorite;
+
+
+                },
               ),
             ),
             Column(
@@ -57,7 +70,7 @@ class ProductCard extends StatelessWidget {
                 SizedBox(height: 15),
                 Expanded(
                   child: Stack(
-                    alignment: Alignment.center,
+                    alignment: Alignment.topLeft,
                     children: <Widget>[
                       CircleAvatar(
                         radius: 40,
