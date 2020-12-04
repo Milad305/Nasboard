@@ -29,7 +29,8 @@ class _MyHomePageState extends State<MyHomePage> {
       decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(13)),
           color: Theme.of(context).backgroundColor,
-          boxShadow: AppTheme.shadow),
+          //boxShadow: AppTheme.shadow
+      ),
       child: Icon(
         icon,
         color: color,
@@ -45,6 +46,17 @@ class _MyHomePageState extends State<MyHomePage> {
       height: 35,
       child:TitleText(
         text: "آخرین محصولات",
+      ) ,
+    );
+  }
+  Widget _DownloadFileTitle(){
+    return Container(
+      padding: EdgeInsets.only(right: 20),
+      alignment: Alignment.topRight,
+      width: AppTheme.fullWidth(context),
+      height: 35,
+      child:TitleText(
+        text: "رام گوشی",
       ) ,
     );
   }
@@ -82,25 +94,30 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _search() {
     return Container(
+      alignment: Alignment.bottomCenter,
       margin: AppTheme.padding,
       child: Row(
         children: <Widget>[
           Expanded(
             child: Container(
-              height: 40,
+              height: 50,
               alignment: Alignment.center,
               decoration: BoxDecoration(
-                  color: LightColor.lightGrey.withAlpha(100),
+                  color: LightColor.lightGrey,//.withAlpha(100)
                   borderRadius: BorderRadius.all(Radius.circular(10))),
               child: TextField(
+
                 decoration: InputDecoration(
+
                     border: InputBorder.none,
+
                     hintText: "جستجو محصول",
-                    hintStyle: TextStyle(fontSize: 15,color: Colors.grey.withOpacity(0.7)),
+
+                    hintStyle: TextStyle(fontSize: 15,color: Colors.grey,),//.withOpacity(0.7)
 
                     contentPadding:
-                        EdgeInsets.only(left: 10, right: 10, bottom: 0, top: 5),
-                    prefixIcon: Icon(Icons.search, color: Colors.black54.withOpacity(0.3))),
+                        EdgeInsets.only(left: 10, right: 10, bottom: 0, top: 10),
+                    prefixIcon: Icon(Icons.search, color: Colors.black54)),//.withOpacity(0.3)
               ),
             ),
           ),
@@ -123,11 +140,28 @@ class _MyHomePageState extends State<MyHomePage> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
-                _search(),
+                SizedBox(
+                    height:MediaQuery.of(context).size.height*0.27,
+                  child: Stack(
+                      children: [
+
+                          _Carousel(),
+                        _search(),
+                      ],
+            )
+
+
+                ),
                 /*_categoryWidget(),*/
+
                 _LastProductsTitle(),
                 _productWidget(),
-                _Carousel()
+
+                _DownloadFileTitle(),
+                _productWidget(),
+                SizedBox(
+                  height: 110,
+                )
 
               ],
             ),
@@ -145,7 +179,9 @@ class _Carousel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CarouselSlider(
-      options: CarouselOptions(height:MediaQuery.of(context).size.height*0.4 ,
+      options: CarouselOptions(
+        height:MediaQuery.of(context).size.height*0.25 ,
+
         autoPlay: true,
         autoPlayInterval: Duration(seconds: 3),
         autoPlayAnimationDuration: Duration(milliseconds: 800),
@@ -160,12 +196,21 @@ class _Carousel extends StatelessWidget {
                 SizedBox(height: 15,),
                 Expanded(
                     child: Container(
-
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(13)
+                      ),
                         width: MediaQuery.of(context).size.width-50,
                         margin: EdgeInsets.symmetric(horizontal: 9),
                         child: FittedBox(
-                          child: Image.asset(i),
-                          fit: BoxFit.fill,
+                            fit: BoxFit.fill,
+                          child:ClipRRect(
+                          borderRadius: BorderRadius.circular(8),
+                          child:Image.asset(
+                            i,
+
+                          ),
+
+                          )
 
                         )
 
