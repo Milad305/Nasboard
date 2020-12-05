@@ -56,11 +56,7 @@ class ProductCard extends StatelessWidget {
                   color:
                   product.isliked ? LightColor.red : LightColor.iconColor,
                 ),
-                onPressed: () {
-                  product.isliked ? Icons.favorite_border : Icons.favorite;
-
-
-                },
+                onPressed: () {},
               ),
             ),
             Column(
