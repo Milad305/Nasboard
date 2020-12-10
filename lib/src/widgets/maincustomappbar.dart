@@ -6,10 +6,11 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
   @override
   final Size preferredSize;
   final String title;
-
+  final Color bgcolor;
   CustomAppBar(
       this.title,
-      { Key key,}) : preferredSize = Size.fromHeight(50.0),
+      this.bgcolor,
+      { Key key,}) : preferredSize = Size.fromHeight(36.0),
         super(key: key);
 
   @override
@@ -19,10 +20,11 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
 
       title: Text(
         title,
-        style: TextStyle(color: Colors.black),
+        style: TextStyle(color: LightColor.lightGrey,fontSize: 17),
       ),
-      backgroundColor: Color(0xfffbfbfb),
-      automaticallyImplyLeading: true,
+      backgroundColor: bgcolor,//Color(0xfffbfbfb),
+      automaticallyImplyLeading:true,
+
     );
   }
 }

@@ -29,7 +29,7 @@ class ProductCard extends StatelessWidget {
     return Container(
 
       decoration: BoxDecoration(
-        color: LightColor.background,
+        color: LightColor.lightGrey,
         borderRadius: BorderRadius.all(Radius.circular(20)),
         boxShadow: <BoxShadow>[
           BoxShadow(color: Color(0xfff8f8f8), blurRadius: 15, spreadRadius: 10),
@@ -44,7 +44,7 @@ class ProductCard extends StatelessWidget {
           alignment: Alignment.center,
           
           children: <Widget>[
-            Positioned(
+            /*Positioned(
               height: 30,
               width: 30,
               right: 0,
@@ -58,7 +58,7 @@ class ProductCard extends StatelessWidget {
                 ),
                 onPressed: () {},
               ),
-            ),
+            ),*/
             Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -66,7 +66,7 @@ class ProductCard extends StatelessWidget {
                 SizedBox(height: 15),
                 Expanded(
                   child: Stack(
-                    alignment: Alignment.topLeft,
+                    alignment: Alignment.topCenter,
                     children: <Widget>[
                       CircleAvatar(
                         radius: 40,

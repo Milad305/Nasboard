@@ -144,9 +144,11 @@ class ShoppingCartPage extends StatelessWidget {
     );
   }
 
- /* Widget _submitButton(BuildContext context) {
+ Widget _submitButton(BuildContext context) {
     return FlatButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.of(context).pushNamed('/payment');
+        },
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         color: LightColor.orange,
         child: Container(
@@ -154,12 +156,12 @@ class ShoppingCartPage extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: 12),
           width: AppTheme.fullWidth(context) * .7,
           child: TitleText(
-            text: 'پرداخت',
+            text: 'تکمیل خرید',
             color: LightColor.background,
             fontWeight: FontWeight.w500,
           ),
         ));
-  }*/
+  }
 
   double getPrice() {
     double price = 0;
@@ -180,11 +182,14 @@ class ShoppingCartPage extends StatelessWidget {
             _FavorritList(),
             _cartItems(),
             SizedBox(
-              height: 150,
+              height: 20,
+            ),
+            _price(),
+            SizedBox(height: 30),
+            _submitButton(context),
+            SizedBox(
+              height: 180,
             )
-            //_price(),
-            //SizedBox(height: 30),
-           // _submitButton(context),
           ],
         ),
       ),
@@ -198,7 +203,7 @@ Widget _FavorritList() {
     child: Row(
       children: [
         TitleText(
-          text: "علاقه مندی ها",
+          text: "سبد خرید",
         )
       ],
     ),

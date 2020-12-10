@@ -126,7 +126,9 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:CustomAppBar('NasBoard'),
+
+
+      appBar:CustomAppBar('NasBoard',Color(0xfffbfbfb)),
       drawer: Drawerwidget(),
       body: SafeArea(
         child: Stack(

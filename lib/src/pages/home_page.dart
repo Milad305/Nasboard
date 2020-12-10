@@ -28,7 +28,7 @@ class _MyHomePageState extends State<MyHomePage> {
       padding: EdgeInsets.all(10),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(13)),
-          color: Theme.of(context).backgroundColor,
+          color: LightColor.grey,
           //boxShadow: AppTheme.shadow
       ),
       child: Icon(
@@ -94,13 +94,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Widget _search() {
     return Container(
-      alignment: Alignment.bottomCenter,
+      alignment: Alignment.topCenter,
       margin: AppTheme.padding,
       child: Row(
         children: <Widget>[
           Expanded(
             child: Container(
-              height: 50,
+              height: 45,
               alignment: Alignment.center,
               decoration: BoxDecoration(
                   color: LightColor.lightGrey,//.withAlpha(100)
@@ -113,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
                     hintText: "جستجو محصول",
 
-                    hintStyle: TextStyle(fontSize: 15,color: Colors.grey,),//.withOpacity(0.7)
+                    hintStyle: TextStyle(fontSize: 15,color: Colors.black54,),//.withOpacity(0.7)
 
                     contentPadding:
                         EdgeInsets.only(left: 10, right: 10, bottom: 0, top: 10),
@@ -121,8 +121,8 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ),
-          SizedBox(width: 20),
-          _icon(Icons.filter_list, color: Colors.black54)
+        //  SizedBox(width: 20),
+         // _icon(Icons.filter_list, color: Colors.black54)
         ],
       ),
     );
@@ -131,6 +131,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
        body: Container(
           height: MediaQuery.of(context).size.height ,
           child: SingleChildScrollView(
@@ -141,12 +142,12 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
                 SizedBox(
-                    height:MediaQuery.of(context).size.height*0.27,
-                  child: Stack(
+                    height:MediaQuery.of(context).size.height*0.4,
+                  child: Column(
                       children: [
-
-                          _Carousel(),
                         _search(),
+                          _Carousel(),
+
                       ],
             )
 
@@ -180,7 +181,7 @@ class _Carousel extends StatelessWidget {
   Widget build(BuildContext context) {
     return CarouselSlider(
       options: CarouselOptions(
-        height:MediaQuery.of(context).size.height*0.25 ,
+        height:MediaQuery.of(context).size.height*0.3 ,
 
         autoPlay: true,
         autoPlayInterval: Duration(seconds: 3),
@@ -194,11 +195,11 @@ class _Carousel extends StatelessWidget {
             return Column(
               children:[
                 SizedBox(height: 15,),
-                Expanded(
-                    child: Container(
+                 Container(
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(13)
                       ),
+                        height: MediaQuery.of(context).size.height * 0.24,
                         width: MediaQuery.of(context).size.width-50,
                         margin: EdgeInsets.symmetric(horizontal: 9),
                         child: FittedBox(
@@ -214,8 +215,8 @@ class _Carousel extends StatelessWidget {
 
                         )
 
-                    )
-                ),
+                    ),
+
                 SizedBox(height: 20,),
               ]
 
