@@ -7,17 +7,19 @@ import 'package:flutter_ecommerce_app/src/themes/theme.dart';
 import 'package:flutter_ecommerce_app/src/widgets/title_text.dart';
 
 class ShoppingCartPage extends StatelessWidget {
+
   const ShoppingCartPage({Key key}) : super(key: key);
 
   Widget _cartItems() {
+    int tedad =5;
     return Column(children:
 
-    AppData.cartList.map((x) => _item(x)).toList(),
+    AppData.cartList.map((x) => _item(x,tedad)).toList(),
 
     );
   }
 
-  Widget _item(Product model) {
+  Widget _item(Product model,tedad) {
     return Container(
       margin: EdgeInsets.only(top: 10),
       height: 80,
@@ -114,7 +116,12 @@ class ShoppingCartPage extends StatelessWidget {
                                   color: LightColor.lightGrey.withAlpha(150),
                                   borderRadius: BorderRadius.circular(10)
                               ),
-                              child: IconButton(icon: Icon(Icons.remove_red_eye), onPressed: (){}),
+                              child: Text(
+                                  tedad.toString()+"x",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold
+                                ),
+                              ),
                           )
 
                         ],

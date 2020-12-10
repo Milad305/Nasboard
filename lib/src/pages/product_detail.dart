@@ -4,10 +4,12 @@ import 'package:flutter_ecommerce_app/src/themes/light_color.dart';
 import 'package:flutter_ecommerce_app/src/themes/theme.dart';
 import 'package:flutter_ecommerce_app/src/widgets/title_text.dart';
 import 'package:flutter_ecommerce_app/src/widgets/extentions.dart';
-
+import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:flutter_ecommerce_app/src/widgets/product_counter.dart';
 class ProductDetailPage extends StatefulWidget {
   ProductDetailPage({Key key}) : super(key: key);
   static const String routeName = '/detail';
+
   @override
   _ProductDetailPageState createState() => _ProductDetailPageState();
 }
@@ -49,7 +51,9 @@ class _ProductDetailPageState extends State<ProductDetailPage>
               Navigator.of(context).pop();
             },
           ),
-          _icon(isLiked ? Icons.favorite : Icons.favorite_border,
+
+         ///like bottun  top left
+         /* _icon(isLiked ? Icons.favorite : Icons.favorite_border,
               color: isLiked ? LightColor.red : LightColor.lightGrey,
               size: 15,
               padding: 12,
@@ -57,7 +61,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
             setState(() {
               isLiked = !isLiked;
             });
-          }),
+          }),*/
         ],
       ),
     );
@@ -169,6 +173,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
   }
 
   Widget _detailWidget() {
+    int _invent = 10;
     return DraggableScrollableSheet(
       maxChildSize: .8,
       initialChildSize: .40,
@@ -237,7 +242,7 @@ class _ProductDetailPageState extends State<ProductDetailPage>
                 SizedBox(
                   height: 20,
                 ),
-                _description(),
+                _description(_invent),
               ],
             ),
           ),
@@ -305,10 +310,47 @@ class _ProductDetailPageState extends State<ProductDetailPage>
     );
   }
 
-  Widget _description() {
+  Widget _description(_invent) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
+      Row(
+        children: [
+          Text(
+              "تعداد موجود:",
+            style: TextStyle(
+              color: LightColor.black,
+              fontSize: 18,
+              fontWeight: FontWeight.bold
+            ),
+          ),
+
+          Spacer(),
+
+            Container(
+                alignment: Alignment.center,
+              height: 30,
+              width: MediaQuery.of(context).size.width *0.15,
+              decoration: BoxDecoration(
+                color: LightColor.lightGrey,
+                borderRadius: BorderRadius.circular(20)
+              ),
+
+              child:Center(
+                child: Text(
+                    _invent.toString()+" عدد",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold
+                  ),
+                ),
+              )
+            ),
+
+        ],
+      ),
+        SizedBox(
+          height: 30,
+        ),
         TitleText(
           text: "توضیحات",
           fontSize: 14,
@@ -321,7 +363,33 @@ class _ProductDetailPageState extends State<ProductDetailPage>
 
   FloatingActionButton _flotingButton() {
     return FloatingActionButton(
-      onPressed: () {},
+      onPressed: () {
+        Alert(
+            context: context,
+            title: "تعداد محصول",
+            content: Row(
+              children: [
+                MyCounter(),
+                Spacer(),
+
+              ],
+            ),
+            buttons: [
+              DialogButton(
+                color: LightColor.orange,
+                onPressed: () {
+                  ///inja bayad az tedad mojood dar anbar kaste beshe va dar
+                  ///database update beshe
+                 // _invent =-_currentAmount;
+                  Navigator.pop(context);
+                } ,
+                child: Text(
+                  "افزودن به سبد خرید",
+                  style: TextStyle(color: Colors.white, fontSize: 20),
+                ),
+              )
+            ]).show();
+      },
       backgroundColor: LightColor.orange,
       child: Icon(Icons.shopping_basket,
           color: Theme.of(context).floatingActionButtonTheme.backgroundColor),

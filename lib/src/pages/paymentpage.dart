@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_ecommerce_app/src/widgets/maincustomappbar.dart';
-import 'package:flutter_ecommerce_app/src/widgets/Drawer.dart';
 import 'package:flutter_ecommerce_app/src/themes/light_color.dart';
 
 class Payment extends StatefulWidget {
@@ -340,16 +339,6 @@ class _PaymentState extends State<Payment> {
 
       appBar:CustomAppBar("سبدخرید",LightColor.darkgrey),
 
-      /*new AppBar(
-        toolbarHeight: 42,
-        title: Text(
-          'پرداخت',
-          style: TextStyle(fontSize: 17),
-        ),
-        elevation: 0.0,
-        backgroundColor:LightColor.darkgrey,// Color(0xfffbfbfb),
-      ),*/
-      //drawer: Drawerwidget(),
     );
   }
 }
