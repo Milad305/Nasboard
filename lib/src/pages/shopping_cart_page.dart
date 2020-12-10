@@ -25,55 +25,69 @@ class ShoppingCartPage extends StatelessWidget {
       height: 80,
       child: Row(
         children: <Widget>[
-          AspectRatio(
-            aspectRatio: 1.1,
-            child: Stack(
-              children: <Widget>[
-                Align(
-                  alignment: Alignment.bottomLeft,
-                  child: Container(
-                    height: 70,
-                    width: 70,
+          GestureDetector(
+           child:  AspectRatio(
+             aspectRatio: 1.1,
+             child: Stack(
+               children: <Widget>[
+                 Align(
+                   alignment: Alignment.bottomLeft,
+                   child: Container(
+                     height: 70,
+                     width: 70,
 
-                    child: Stack(
-                      children: <Widget>[
-                        Align(
-                          alignment: Alignment.bottomLeft,
-                          child: Container(
-                            padding: EdgeInsets.only(top: 10),
-                            decoration: BoxDecoration(
+                     child: Stack(
+                       children: <Widget>[
+                         Align(
+                           alignment: Alignment.bottomLeft,
+                           child: Container(
+                             padding: EdgeInsets.only(top: 10),
+                             decoration: BoxDecoration(
 
-                                color: LightColor.lightGrey,
-                                borderRadius: BorderRadius.circular(10)),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Positioned(
-                  left: -20,
-                  bottom: -20,
+                                 color: LightColor.lightGrey,
+                                 borderRadius: BorderRadius.circular(10)),
+                           ),
+                         ),
+                       ],
+                     ),
+                   ),
+                 ),
+                 Positioned(
+                   left: -20,
+                   bottom: -20,
 
-                  child: Container(
-                    child: Image.asset(model.image, height: 75, width: 110,),
-                    padding: EdgeInsets.only(bottom: 25,),
+                   child: Container(
+                     child: Image.asset(model.image, height: 75, width: 110,),
+                     padding: EdgeInsets.only(bottom: 25,),
 
-                  ),
+                   ),
 
 
-                ),
+                 ),
 
-              ],
-            ),
+               ],
+             ),
+           ),
+            ///ba click roye tasvir be mahsool erja dade mishavad
+            onTap: (){
+              print("clicked");
+            },
           ),
+
           Expanded(
               child: ListTile(
-                  title: TitleText(
-                    text: model.name,
-                    fontSize: 15,
-                    fontWeight: FontWeight.w700,
+                  title: GestureDetector(
+                    child: TitleText(
+                      text: model.name,
+                      fontSize: 15,
+                      fontWeight: FontWeight.w700,
+                    ),
+                    ///ba click roye tasvir be mahsool erja dade mishavad
+                    onTap: (){
+                      print("clicked");
+                    },
                   ),
+
                   subtitle: Row(
                     children: <Widget>[
                       TitleText(

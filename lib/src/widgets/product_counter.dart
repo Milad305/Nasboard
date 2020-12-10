@@ -36,6 +36,7 @@ class _MyCounterState extends State {
             setState(() {
               if(_currentAmount > 0){
                 _currentAmount -= 1;
+                print("clicked");
               }
 
             });
